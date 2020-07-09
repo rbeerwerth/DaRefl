@@ -16,7 +16,7 @@
 
 namespace
 {
-const int delay_mksec = 5000;
+const int delay_mksec = 500;
 const int simulation_steps_count = 500;
 } // namespace
 
@@ -29,6 +29,24 @@ SpecularToySimulation::SpecularToySimulation(const multislice_t& multislice)
 
 void SpecularToySimulation::runSimulation()
 {
+    /* wish for actual procedure
+    // auto std::vector<BA::Slices> processedSlices(input_data);
+
+    progress_handler.reset();
+    for (int i = 0; i < simulation_steps_count; ++i) {
+
+        if (progress_handler.has_interrupt_request())
+            throw std::runtime_error("Interrupt request");
+
+        auto q = …;
+        k = 0.5 * q;
+
+        auto result = strategy.Execute(processedSlices, kvector_t(0, 0, k)).front();
+        specular_result[i] = SpecularIntensity(result.front());
+        progress_handler.setCompletedTicks(1);
+    }
+    */
+
     // actual simulation
     auto [xmin, xmax] = MaterialProfile::DefaultMaterialProfileLimits(input_data);
     auto profile =
