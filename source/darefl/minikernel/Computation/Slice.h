@@ -21,6 +21,8 @@
 
 class LayerRoughness;
 
+namespace BornAgain {
+
 //! Data structure containing the data of a single slice, for calculating the Fresnel coefficients.
 //!
 //! @ingroup algorithms_internal
@@ -64,5 +66,7 @@ private:
     kvector_t m_B_field; //!< cached value of magnetic induction
     std::unique_ptr<LayerRoughness> mP_top_roughness;
 };
+
+} // namespace BornAgain
 
 #endif // SLICE_H

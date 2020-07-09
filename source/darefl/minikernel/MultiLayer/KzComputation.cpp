@@ -12,11 +12,11 @@
 //
 // ************************************************************************** //
 
-#include "Core/Multilayer/KzComputation.h"
-#include "Core/Computation/Slice.h"
-#include "Core/Multilayer/Layer.h"
-#include "Core/Multilayer/MultiLayer.h"
-#include "Core/Parametrization/Units.h"
+#include <darefl/minikernel/MultiLayer/KzComputation.h>
+#include <darefl/minikernel/Computation/Slice.h>
+//#include <darefl/minikernel/MultiLayer/la "Core/Multilayer/Layer.h"
+//#include <darefl/minikernel/MultiLayer/mu "Core/Multilayer/MultiLayer.h"
+#include <darefl/minikernel/Parametrization/Units.h>
 
 namespace
 {
@@ -26,7 +26,7 @@ complex_t normalizedSLD(const Material& material);
 complex_t checkForUnderflow(complex_t val);
 } // namespace
 
-std::vector<complex_t> KzComputation::computeReducedKz(const std::vector<Slice>& slices,
+std::vector<complex_t> KzComputation::computeReducedKz(const std::vector<BornAgain::Slice>& slices,
                                                        kvector_t k)
 {
     const size_t N = slices.size();
@@ -44,7 +44,7 @@ std::vector<complex_t> KzComputation::computeReducedKz(const std::vector<Slice>&
     return kz;
 }
 
-std::vector<complex_t> KzComputation::computeKzFromSLDs(const std::vector<Slice>& slices, double kz)
+std::vector<complex_t> KzComputation::computeKzFromSLDs(const std::vector<BornAgain::Slice>& slices, double kz)
 {
     const size_t N = slices.size();
     const double k_sign = kz > 0.0 ? -1 : 1;
@@ -60,7 +60,7 @@ std::vector<complex_t> KzComputation::computeKzFromSLDs(const std::vector<Slice>
     return result;
 }
 
-std::vector<complex_t> KzComputation::computeKzFromRefIndices(const std::vector<Slice>& slices,
+std::vector<complex_t> KzComputation::computeKzFromRefIndices(const std::vector<BornAgain::Slice>& slices,
                                                               kvector_t k)
 {
     const size_t N = slices.size();

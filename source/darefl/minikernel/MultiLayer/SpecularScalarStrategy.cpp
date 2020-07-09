@@ -21,18 +21,18 @@
 
 namespace
 {
-const LayerRoughness* GetBottomRoughness(const std::vector<Slice>& slices,
+const LayerRoughness* GetBottomRoughness(const std::vector<BornAgain::Slice>& slices,
                                          const size_t slice_index);
 } // namespace
 
-ISpecularStrategy::coeffs_t SpecularScalarStrategy::Execute(const std::vector<Slice>& slices,
+ISpecularStrategy::coeffs_t SpecularScalarStrategy::Execute(const std::vector<BornAgain::Slice>& slices,
                                                             const kvector_t& k) const
 {
     std::vector<complex_t> kz = KzComputation::computeReducedKz(slices, k);
     return Execute(slices, kz);
 }
 
-ISpecularStrategy::coeffs_t SpecularScalarStrategy::Execute(const std::vector<Slice>& slices,
+ISpecularStrategy::coeffs_t SpecularScalarStrategy::Execute(const std::vector<BornAgain::Slice>& slices,
                                                             const std::vector<complex_t>& kz) const
 {
     if (slices.size() != kz.size())
@@ -46,7 +46,7 @@ ISpecularStrategy::coeffs_t SpecularScalarStrategy::Execute(const std::vector<Sl
 }
 
 std::vector<ScalarRTCoefficients>
-SpecularScalarStrategy::computeTR(const std::vector<Slice>& slices,
+SpecularScalarStrategy::computeTR(const std::vector<BornAgain::Slice>& slices,
                                   const std::vector<complex_t>& kz) const
 {
     const size_t N = slices.size();
@@ -81,7 +81,7 @@ void SpecularScalarStrategy::setZeroBelow(std::vector<ScalarRTCoefficients>& coe
 }
 
 bool SpecularScalarStrategy::calculateUpFromLayer(std::vector<ScalarRTCoefficients>& coeff,
-                                                  const std::vector<Slice>& slices,
+                                                  const std::vector<BornAgain::Slice>& slices,
                                                   const std::vector<complex_t>& kz,
                                                   size_t slice_index) const
 {
@@ -131,7 +131,7 @@ bool SpecularScalarStrategy::calculateUpFromLayer(std::vector<ScalarRTCoefficien
 
 namespace
 {
-const LayerRoughness* GetBottomRoughness(const std::vector<Slice>& slices, const size_t slice_index)
+const LayerRoughness* GetBottomRoughness(const std::vector<BornAgain::Slice>& slices, const size_t slice_index)
 {
     if (slice_index + 1 < slices.size())
         return slices[slice_index + 1].topRoughness();

@@ -39,9 +39,9 @@ public:
     using single_coeff_t = std::unique_ptr<const ILayerRTCoefficients>;
     using coeffs_t = std::vector<single_coeff_t>;
 
-    virtual coeffs_t Execute(const std::vector<Slice>& slices, const kvector_t& k) const = 0;
+    virtual coeffs_t Execute(const std::vector<BornAgain::Slice>& slices, const kvector_t& k) const = 0;
 
-    virtual coeffs_t Execute(const std::vector<Slice>& slices,
+    virtual coeffs_t Execute(const std::vector<BornAgain::Slice>& slices,
                              const std::vector<complex_t>& kz) const = 0;
 };
 

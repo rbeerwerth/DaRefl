@@ -23,12 +23,13 @@ const int simulation_steps_count = 500;
 using namespace ModelView;
 
 SpecularToySimulation::SpecularToySimulation(const multislice_t& multislice)
-    : input_data(multislice)
+    : input_data(multislice), strategy(std::make_unique<SpecularScalarTanhStrategy>())
 {
 }
 
 void SpecularToySimulation::runSimulation()
 {
+
     /* wish for actual procedure
     // auto std::vector<BA::Slices> processedSlices(input_data);
 

@@ -16,6 +16,10 @@
 #include <darefl/minikernel/MultiLayer/LayerRoughness.h>
 #include <darefl/minikernel/Material/MaterialUtils.h>
 
+namespace BornAgain {
+
+
+
 Slice::Slice(double thickness, const Material& material)
     : m_thickness{thickness}, m_material{material}, m_B_field{}, mP_top_roughness{nullptr}
 {
@@ -97,3 +101,6 @@ void Slice::invertBField()
 {
     m_B_field = -m_B_field;
 }
+
+} // namespace BornAgain
+
