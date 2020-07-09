@@ -1,5 +1,7 @@
 set(library_name dareflcore)
 
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+
 add_library(${library_name} STATIC "")
 
 add_subdirectory(mainwindow)
@@ -15,6 +17,6 @@ add_subdirectory(quicksimeditor)
 add_subdirectory(sldeditor)
 add_subdirectory(welcomeview)
 
-target_link_libraries(${library_name} PUBLIC MVVM::View Qt5::Core Qt5::Gui Qt5::Widgets)
+target_link_libraries(${library_name} PUBLIC MVVM::View Qt5::Core Qt5::Gui Qt5::Widgets Eigen3::Eigen)
 target_include_directories(${library_name} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/..>)
 
