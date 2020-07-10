@@ -37,8 +37,7 @@ void SpecularToySimulation::runSimulation()
 {
     auto slices = createBornAgainSlices(input_data);
     auto qvalues = ModelView::FixedBinAxisItem::create(simulation_points, specular_result.xmin,
-                                                       specular_result.xmax)
-                       ->binCenters();
+                                                       specular_result.xmax)->binCenters();
 
     specular_result.data.reserve(simulation_points);
 
