@@ -12,11 +12,11 @@
 //
 // ************************************************************************** //
 
-#include "Core/Parametrization/IParameterized.h"
-#include "Core/Basics/Exceptions.h"
-#include "Core/Parametrization/ParameterPool.h"
-#include "Core/Parametrization/RealParameter.h"
-#include "Fit/Tools/RealLimits.h"
+#include <darefl/minikernel/Parametrization/IParameterized.h>
+#include <darefl/minikernel/Basics/Exceptions.h>
+#include <darefl/minikernel/Parametrization/ParameterPool.h>
+//#include "Core/Parametrization/RealParameter.h"
+//#include "Fit/Tools/RealLimits.h"
 #include <iostream>
 #include <memory>
 #include <sstream>
@@ -47,37 +47,37 @@ ParameterPool* IParameterized::createParameterTree() const
 
 std::string IParameterized::parametersToString() const
 {
-    std::ostringstream result;
-    std::unique_ptr<ParameterPool> P_pool(createParameterTree());
-    result << *P_pool << "\n";
-    return result.str();
+//    std::ostringstream result;
+//    std::unique_ptr<ParameterPool> P_pool(createParameterTree());
+//    result << *P_pool << "\n";
+//    return result.str();
 }
 
 RealParameter& IParameterized::registerParameter(const std::string& name, double* data)
 {
-    return m_pool->addParameter(
-        new RealParameter(name, data, getName(), [&]() -> void { onChange(); }));
+//    return m_pool->addParameter(
+//        new RealParameter(name, data, getName(), [&]() -> void { onChange(); }));
 }
 
 void IParameterized::registerVector(const std::string& base_name, kvector_t* p_vec,
                                     const std::string& units)
 {
-    registerParameter(XComponentName(base_name), &((*p_vec)[0])).setUnit(units);
-    registerParameter(YComponentName(base_name), &((*p_vec)[1])).setUnit(units);
-    registerParameter(ZComponentName(base_name), &((*p_vec)[2])).setUnit(units);
+//    registerParameter(XComponentName(base_name), &((*p_vec)[0])).setUnit(units);
+//    registerParameter(YComponentName(base_name), &((*p_vec)[1])).setUnit(units);
+//    registerParameter(ZComponentName(base_name), &((*p_vec)[2])).setUnit(units);
 }
 
 void IParameterized::setParameterValue(const std::string& name, double value)
 {
-    if (name.find('*') == std::string::npos && name.find('/') == std::string::npos) {
-        m_pool->setParameterValue(name, value);
-    } else {
-        std::unique_ptr<ParameterPool> P_pool{createParameterTree()};
-        if (name.find('*') != std::string::npos)
-            P_pool->setMatchedParametersValue(name, value);
-        else
-            P_pool->setParameterValue(name, value);
-    }
+//    if (name.find('*') == std::string::npos && name.find('/') == std::string::npos) {
+//        m_pool->setParameterValue(name, value);
+//    } else {
+//        std::unique_ptr<ParameterPool> P_pool{createParameterTree()};
+//        if (name.find('*') != std::string::npos)
+//            P_pool->setMatchedParametersValue(name, value);
+//        else
+//            P_pool->setParameterValue(name, value);
+//    }
 }
 
 void IParameterized::setVectorValue(const std::string& base_name, kvector_t value)

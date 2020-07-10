@@ -1,6 +1,7 @@
 
 add_subdirectory(Basics)
 add_subdirectory(Computation)
+add_subdirectory(Fit)
 add_subdirectory(Material)
 add_subdirectory(MultiLayer)
 add_subdirectory(Parametrization)

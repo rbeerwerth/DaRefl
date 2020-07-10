@@ -14,10 +14,10 @@
 
 #include <darefl/minikernel/Parametrization/INode.h>
 #include <darefl/minikernel/Basics/Exceptions.h>
-//#include <darefl/minikernel/Parametrization/ "Core/Parametrization/IterationStrategy.h"
-//#include "Core/Parametrization/NodeIterator.h"
+#include <darefl/minikernel/Parametrization/IterationStrategy.h>
+#include <darefl/minikernel/Parametrization/NodeIterator.h>
 #include <darefl/minikernel/Parametrization/NodeUtils.h>
-//#include "Core/Parametrization/ParameterPool.h"
+#include <darefl/minikernel/Parametrization/ParameterPool.h>
 #include <algorithm>
 
 INode::INode() : m_parent(nullptr) {}
@@ -86,18 +86,18 @@ std::string INode::displayName() const
     return result;
 }
 
-//ParameterPool* INode::createParameterTree() const
-//{
-//    std::unique_ptr<ParameterPool> result(new ParameterPool);
+ParameterPool* INode::createParameterTree() const
+{
+    std::unique_ptr<ParameterPool> result(new ParameterPool);
 
-//    NodeIterator<PreorderStrategy> it(this);
-//    it.first();
-//    while (!it.isDone()) {
-//        const INode* child = it.getCurrent();
-//        const std::string path = NodeUtils::nodePath(*child, this->parent()) + "/";
-//        child->parameterPool()->copyToExternalPool(path, result.get());
-//        it.next();
-//    }
+    NodeIterator<PreorderStrategy> it(this);
+    it.first();
+    while (!it.isDone()) {
+        const INode* child = it.getCurrent();
+        const std::string path = NodeUtils::nodePath(*child, this->parent()) + "/";
+        child->parameterPool()->copyToExternalPool(path, result.get());
+        it.next();
+    }
 
-//    return result.release();
-//}
+    return result.release();
+}

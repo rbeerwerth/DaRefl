@@ -14,11 +14,11 @@
 
 #include <darefl/minikernel/Parametrization/NodeUtils.h>
 #include <darefl/minikernel/Basics/Exceptions.h>
-#include "Core/Parametrization/INode.h"
-#include "Core/Parametrization/IterationStrategy.h"
-#include "Core/Parametrization/NodeIterator.h"
-#include "Core/Parametrization/ParameterPool.h"
-#include "Core/Parametrization/RealParameter.h"
+#include <darefl/minikernel/Parametrization/INode.h>
+#include <darefl/minikernel/Parametrization/IterationStrategy.h>
+#include <darefl/minikernel/Parametrization/NodeIterator.h>
+#include <darefl/minikernel/Parametrization/ParameterPool.h>
+#include <darefl/minikernel/Parametrization/RealParameter.h>
 #include <algorithm>
 #include <functional>
 #include <iterator>
