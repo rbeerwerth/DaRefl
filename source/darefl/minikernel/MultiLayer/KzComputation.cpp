@@ -14,8 +14,8 @@
 
 #include <darefl/minikernel/MultiLayer/KzComputation.h>
 #include <darefl/minikernel/Computation/Slice.h>
-//#include <darefl/minikernel/MultiLayer/la "Core/Multilayer/Layer.h"
-//#include <darefl/minikernel/MultiLayer/mu "Core/Multilayer/MultiLayer.h"
+//#include "Core/Multilayer/Layer.h"
+//#include "Core/Multilayer/MultiLayer.h"
 #include <darefl/minikernel/Parametrization/Units.h>
 
 namespace
